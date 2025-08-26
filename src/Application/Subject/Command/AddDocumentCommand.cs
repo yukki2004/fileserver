@@ -1,6 +1,14 @@
-﻿namespace WebApplication4.src.Application.Subject.Command
+﻿using MediatR;
+using WebApplication4.src.Application.Subject.Command;
+using WebApplication4.src.Application.Subject.DTOs;
+namespace WebApplication4.src.Application.Subject.Command
 {
-    public class AddDocumentCommand
+    public class AddDocumentCommand :IRequest<DocumentDto>
     {
+        public Guid SubjectId { get; set; }
+        public string type { get; set; } = null!;
+        public string fileName { get; set; } = null!;
+        public string filePath { get; set; } = null!;
+
     }
 }

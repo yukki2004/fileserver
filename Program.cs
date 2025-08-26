@@ -1,3 +1,11 @@
+using WebApplication4.src.Application.Subject.Command;
+using WebApplication4.src.Application.Subject.Queries;
+using WebApplication4.src.Infrastructure.Data;
+using WebApplication4.src.Infrastructure.Reposity;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
+using WebApplication4.src.Domain.Entities;
+using WebApplication4.src.Application.Subject.DTOs;
 
 namespace WebApplication4
 {
@@ -7,16 +15,14 @@ namespace WebApplication4
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            builder.Services.AddDbContext<AppDataConText>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
             var app = builder.Build();
-
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();

@@ -15,4 +15,4 @@ obj/
 
 # Publish output
 *.Publish.xml
-appsetting.json
+appsettings.json

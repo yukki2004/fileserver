@@ -7,8 +7,7 @@ namespace WebApplication4.src.Application.Subject.Command
     {
         public Guid SubjectId { get; set; }
         public string type { get; set; } = null!;
-        public string fileName { get; set; } = null!;
-        public string filePath { get; set; } = null!;
+        public IFormFile File { get; set; } = default!;
 
     }
 }
